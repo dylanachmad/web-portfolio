@@ -37,7 +37,7 @@ document.querySelectorAll('.open-project').forEach(btn => {
     pdfViewer.src = src;
     pdfModal.classList.add('show');
     pdfModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden'; // disable scroll background
   });
 });
 
@@ -47,7 +47,7 @@ pdfModal?.addEventListener('click', (e) => {
     pdfModal.classList.remove('show');
     pdfModal.setAttribute('aria-hidden', 'true');
     pdfViewer.src = '';
-    document.body.style.overflow = '';
+    document.body.style.overflow = ''; // enable scroll background
   }
 });
 
