@@ -27,7 +27,6 @@ img { display: block; max-width: 100%; }
   font-weight: 700;
   font-size: 1.25rem;
   color: #0e2d33;
-  margin-left: -2cm;
 }
 .menu-toggle {
   display: none;
