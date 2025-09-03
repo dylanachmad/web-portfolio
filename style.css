@@ -67,18 +67,20 @@ img { display: block; max-width: 100%; }
   align-items: center;
 }
 
-/* Frame Elastis */
+/* Frame Elastis Responsif */
 .profile-frame {
   width: 230px;
-  height: 230px;
+  max-width: 80vw;
+  aspect-ratio: 1 / 1;
   background: #fff;
   overflow: hidden;
-  animation: morph 6s ease-in-out infinite, bounce 3s ease-in-out infinite; /* Tambahkan bounce */
+  animation: morph 6s ease-in-out infinite, bounce 3s ease-in-out infinite;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 25px rgba(0, 151, 167, 0.6);
   transition: transform 0.3s ease; /* Untuk efek zoom */
+  border-radius: 50%; /* Default biar rapi */
 }
 
 /* Zoom saat hover */
@@ -181,6 +183,18 @@ img { display: block; max-width: 100%; }
   background: #444;
 }
 
+/* --- Responsif untuk ukuran layar kecil --- */
+@media (max-width: 768px) {
+  .profile-frame {
+    width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-frame {
+    width: 140px;
+  }
+}
 
 /* ---------- Sections ---------- */
 .section { padding: 72px 0; }
@@ -347,6 +361,49 @@ img { display: block; max-width: 100%; }
 .cert-item:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.08); }
 .cert-thumb { border-radius: 10px; aspect-ratio: 4/3; object-fit: cover; }
 .cert-item figcaption { margin-top: 8px; font-weight: 600; color: #334; }
+
+/* ---------- Contact Section ---------- */
+#contact {
+  text-align: center;
+}
+
+#contact p {
+  margin-bottom: 14px;
+  font-size: 1rem;
+}
+
+.contact-link {
+  display: inline-flex;         /* ikon + teks sejajar */
+  align-items: center;          /* vertikal align tengah */
+  gap: 10px;                    /* jarak antara ikon dan teks */
+  text-decoration: none;        /* hilangkan underline */
+  color: inherit;               /* pakai warna teks default */
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.contact-link img {
+  width: 28px;                  /* ukuran ikon */
+  height: 28px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.contact-link:hover img {
+  transform: scale(1.1);        /* efek zoom saat hover ikon */
+}
+
+.contact-link:hover {
+  color: #06b6d4;               /* warna teks saat hover */
+}
+
+/* Responsive: center contact links on mobile */
+@media (max-width: 480px) {
+  .contact-link {
+    flex-direction: row;         /* tetap sejajar */
+    justify-content: center;
+  }
+}
 
 /* ---------- Footer ---------- */
 .footer { background: #0f172a; color: #e5e7eb; padding: 28px 0; text-align: center; }
