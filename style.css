@@ -79,8 +79,8 @@ img { display: block; max-width: 100%; }
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 25px rgba(0, 151, 167, 0.6);
-  transition: transform 0.3s ease; /* Untuk efek zoom */
-  border-radius: 50%; /* Default biar rapi */
+  transition: transform 0.3s ease;
+  border-radius: 50%;
 }
 
 /* Zoom saat hover */
@@ -117,7 +117,7 @@ img { display: block; max-width: 100%; }
   }
 }
 
-/* Animasi bounce (loncat-loncat) */
+/* Animasi bounce */
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);
@@ -183,7 +183,7 @@ img { display: block; max-width: 100%; }
   background: #444;
 }
 
-/* --- Responsif untuk ukuran layar kecil --- */
+/* Responsif Layar Kecil */
 @media (max-width: 768px) {
   .profile-frame {
     width: 180px;
@@ -244,11 +244,11 @@ img { display: block; max-width: 100%; }
   margin-bottom: 6px;
 }
 
-/* ---------- Projects Grid ---------- */
+/* ---------- Projects Grid (2x2 Grid) ---------- */
 .projects-grid {
   display: grid; 
-  gap: 18px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .project-card {
@@ -276,7 +276,7 @@ img { display: block; max-width: 100%; }
   text-align: justify;
 }
 
-/* Button */
+/* Button Project */
 .project-card .btn {
   display: inline-block;
   background: #06b6d4;
@@ -296,6 +296,12 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 6px 12px rgba(6, 182, 212, 0.3);
 }
 
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- PDF Modal ---------- */
 .pdf-modal {
   display: none;
@@ -305,7 +311,7 @@ img { display: block; max-width: 100%; }
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /* scrollable */
+  overflow: auto;
   background-color: rgba(0,0,0,0.7);
 }
 
@@ -348,10 +354,12 @@ img { display: block; max-width: 100%; }
   color: #06b6d4;
 }
 
-/* ---------- Certificates ---------- */
+/* ---------- Certificates (3x2 Grid) ---------- */
 .cert-grid {
-  display: grid; gap: 18px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: grid; 
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
 }
 .cert-item {
   background: #fff; border-radius: 14px; padding: 12px; text-align: center;
@@ -359,8 +367,20 @@ img { display: block; max-width: 100%; }
   transition: transform .15s ease, box-shadow .25s ease;
 }
 .cert-item:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.08); }
-.cert-thumb { border-radius: 10px; aspect-ratio: 4/3; object-fit: cover; }
+.cert-thumb { border-radius: 10px; aspect-ratio: 4/3; object-fit: cover; width: 100%; }
 .cert-item figcaption { margin-top: 8px; font-weight: 600; color: #334; }
+
+@media (max-width: 992px) {
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* ---------- Contact Section ---------- */
 #contact {
@@ -373,34 +393,33 @@ img { display: block; max-width: 100%; }
 }
 
 .contact-link {
-  display: inline-flex;         /* ikon + teks sejajar */
-  align-items: center;          /* vertikal align tengah */
-  gap: 10px;                    /* jarak antara ikon dan teks */
-  text-decoration: none;        /* hilangkan underline */
-  color: inherit;               /* pakai warna teks default */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
   transition: color 0.3s ease;
   font-weight: 500;
 }
 
 .contact-link img {
-  width: 28px;                  /* ukuran ikon */
+  width: 28px;
   height: 28px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
 .contact-link:hover img {
-  transform: scale(1.1);        /* efek zoom saat hover ikon */
+  transform: scale(1.1);
 }
 
 .contact-link:hover {
-  color: #06b6d4;               /* warna teks saat hover */
+  color: #06b6d4;
 }
 
-/* Responsive: center contact links on mobile */
 @media (max-width: 480px) {
   .contact-link {
-    flex-direction: row;         /* tetap sejajar */
+    flex-direction: row;
     justify-content: center;
   }
 }
